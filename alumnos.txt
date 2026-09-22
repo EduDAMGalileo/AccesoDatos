@@ -1,0 +1,2 @@
+1|Eduardo|Rodriguez Pérez|2000-05-15|edu@gmail.com
+2|Carla|López González|2001-10-20|arla@gmail.com
