@@ -1,4 +1,4 @@
-package repaso;
+package repaso.docs;
 
 import java.util.List;
 import java.util.Optional;

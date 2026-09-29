@@ -1,4 +1,4 @@
-package repaso;
+package repaso.docs;
 
 public class IdentidadIgualdad {
 

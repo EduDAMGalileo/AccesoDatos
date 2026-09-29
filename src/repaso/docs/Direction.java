@@ -1,4 +1,4 @@
-package repaso;
+package repaso.docs;
 
 public record Direction(String calle, String municipio, String codigoPostal) { 
 	

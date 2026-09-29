@@ -1,4 +1,4 @@
-package repaso;
+package repaso.docs;
 
 import java.time.LocalDate;
 import java.time.Period;

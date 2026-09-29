@@ -1,4 +1,4 @@
-package repaso;
+package repaso.docs;
 
 import java.sql.Connection;
 import java.sql.SQLException;
