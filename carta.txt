@@ -1,0 +1,1 @@
+¡Hola desde Java! Incluye tildes, la letra ñ y el símbolo del euro: 50€.
