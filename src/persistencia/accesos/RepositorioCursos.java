@@ -107,9 +107,11 @@ public class RepositorioCursos {
 
         try (RandomAccessFile f = new RandomAccessFile(ruta.toFile(), "rw")) {
             f.seek(posicion);
-            f.writeBoolean(true); // Marca de borrado
+            // Marca de borrado
+            f.writeBoolean(true); 
 
-            indice.remove(id);   // Ya no es visible en búsquedas
+            //Ya no es visible en búsquedas
+            indice.remove(id);   
             return true;
         } catch (IOException e) {
             throw new RuntimeException("Error al borrar el curso " + id, e);
@@ -125,12 +127,12 @@ public class RepositorioCursos {
     // =========================================================================
 
     private void escribirCurso(RandomAccessFile f, Curso c) throws IOException {
-        f.writeBoolean(false); // Borrado = false (1 byte)
-        f.writeInt(c.getId());  // ID (4 bytes)
+        f.writeBoolean(false); 
+        f.writeInt(c.getId()); 
         escribirTexto(f, c.getCodigo(), FormatoCurso.CODIGO);
         escribirTexto(f, c.getNombre(), FormatoCurso.NOMBRE);
-        f.writeInt(c.getHoras());   // Horas (4 bytes)
-        f.writeDouble(c.getPrecio()); // Precio (8 bytes)
+        f.writeInt(c.getHoras());   
+        f.writeDouble(c.getPrecio());
     }
 
     private Curso leerCurso(RandomAccessFile f) throws IOException {
@@ -149,10 +151,12 @@ public class RepositorioCursos {
             throw new IllegalArgumentException("El texto excede el tamaño máximo de " + ancho + ": " + s);
         }
         StringBuilder b = new StringBuilder(s);
+        // Relleno de huecos
         while (b.length() < ancho) {
-            b.append(' '); // Relleno de huecos
+            b.append(' ');
         }
-        f.writeChars(b.toString()); // 2 bytes por carácter
+        // 2 bytes por carácter
+        f.writeChars(b.toString()); 
     }
 
     private String leerTexto(RandomAccessFile f, int ancho) throws IOException {
@@ -160,6 +164,7 @@ public class RepositorioCursos {
         for (int i = 0; i < ancho; i++) {
             chars[i] = f.readChar();
         }
-        return new String(chars).trim(); // Eliminamos el relleno de espacios
+        //Eliminamos el relleno de espacios
+        return new String(chars).trim(); 
     }
 }

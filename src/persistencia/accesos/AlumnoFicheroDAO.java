@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.time.LocalDate;
 
+import repaso.docs.AccesoDatosException;
+
 public class AlumnoFicheroDAO {
 
     /**
@@ -35,7 +37,7 @@ public class AlumnoFicheroDAO {
         }
         f.writeChars(b.toString());
     }
-
+    
     /**
      * Lee un registro completo desde la posición actual del puntero.
      */

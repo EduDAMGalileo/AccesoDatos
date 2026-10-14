@@ -13,7 +13,7 @@ public class EjemploOptional {
 
         // Forma 1: Con if y isPresent() (el equivalente actual al != null)
         if (resultado1.isPresent()) {
-            String capital = resultado1.get(); // .get() saca el dato de la caja
+            String capital = resultado1.get(); 
             System.out.println("Forma 1 -> Encontrada: " + capital);
         }
 
