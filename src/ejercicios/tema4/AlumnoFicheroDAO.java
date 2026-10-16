@@ -25,6 +25,15 @@ public class AlumnoFicheroDAO {
         f.writeLong(a.getFechaNacimiento().toEpochDay()); 
         escribirTexto(f, a.getCorreo() == null ? "" : a.getCorreo(), FormatoAlumno.CORREO);
     }
+    /*
+     * if (a.getCorreo() == null){ 
+     * 	correo= "" 
+     * }
+     * else
+     * {
+     *   correo= a.getCorreo()
+     * }
+     */
 
     private void escribirTexto(RandomAccessFile f, String s, int ancho) throws IOException {
         if (s.length() > ancho) {
