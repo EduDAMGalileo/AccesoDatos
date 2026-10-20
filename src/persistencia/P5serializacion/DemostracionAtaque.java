@@ -1,4 +1,4 @@
-package persistencia.serializacion;
+package persistencia.P5serializacion;
 
 import java.io.*;
 import java.nio.file.*;
