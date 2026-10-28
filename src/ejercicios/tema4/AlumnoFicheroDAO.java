@@ -3,6 +3,7 @@ package ejercicios.tema4;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.time.LocalDate;
+import java.util.Optional;
 
 import repaso.docs.AccesoDatosException;
 
@@ -34,6 +35,11 @@ public class AlumnoFicheroDAO {
      *   correo= a.getCorreo()
      * }
      */
+    
+    public void borrarAlumno(RandomAccessFile f, int alumno) throws IOException {
+    	f.seek(FormatoAlumno.posicionDe(alumno-1));
+    	f.writeBoolean(true);
+    }
 
     private void escribirTexto(RandomAccessFile f, String s, int ancho) throws IOException {
         if (s.length() > ancho) {
@@ -50,16 +56,20 @@ public class AlumnoFicheroDAO {
     /**
      * Lee un registro completo desde la posición actual del puntero.
      */
-    public Alumno leer(RandomAccessFile f) throws IOException {
-        boolean borrado = f.readBoolean();
-        int id = f.readInt();
-        String nia = leerTexto(f, FormatoAlumno.NIA);
-        String nombre = leerTexto(f, FormatoAlumno.NOMBRE);
-        String apellidos = leerTexto(f, FormatoAlumno.APELLIDOS);
-        long epochDay = f.readLong();
-        String correo = leerTexto(f, FormatoAlumno.CORREO);
+    public Optional<Alumno> leer(RandomAccessFile f) throws IOException {
+        if(!f.readBoolean()) {
+            int id = f.readInt();
+            String nia = leerTexto(f, FormatoAlumno.NIA);
+            String nombre = leerTexto(f, FormatoAlumno.NOMBRE);
+            String apellidos = leerTexto(f, FormatoAlumno.APELLIDOS);
+            long epochDay = f.readLong();
+            String correo = leerTexto(f, FormatoAlumno.CORREO);
+            
+            return Optional.of(new Alumno(id, nia, nombre, apellidos, LocalDate.ofEpochDay(epochDay), correo));
+        } else {
+        	return Optional.empty();
+        }
 
-        return new Alumno(id, nia, nombre, apellidos, LocalDate.ofEpochDay(epochDay), correo);
     }
 
     private String leerTexto(RandomAccessFile f, int ancho) throws IOException {

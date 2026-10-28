@@ -6,12 +6,14 @@ import java.io.RandomAccessFile;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.Scanner;
 
 public class AppAlumno {
 
+	private static Scanner sc = new Scanner(System.in);
 	
-	public static void alta10Alumnos(RandomAccessFile raf,AlumnoFicheroDAO dao ) throws IOException {
+	private static void alta10Alumnos(RandomAccessFile raf,AlumnoFicheroDAO dao ) throws IOException {
 		//Vamos a crear una lista, por trabajar con Listas
 		List<Alumno> alumnos = new ArrayList<>();
 		for (int i=1; i<=10;i++) {
@@ -23,24 +25,44 @@ public class AppAlumno {
 		for(Alumno a: alumnos) {
 			dao.escribir(raf, a);
 		}
-		
-		
 		 
 		  for (int i=1; i<=10;i++) {
 			dao.escribir(raf, new Alumno(i, "A1234"+i, "Juan"+i, "Gómez Puente", 
 					LocalDate.of(1984, 4, 14), "correo@edu.com"));
 		}
-		 
-		
-		
 	}
 	
-	public static void consultarEstadisticas(RandomAccessFile raf) throws IOException{
+	private static void consultarEstadisticas(RandomAccessFile raf) throws IOException{
 		System.out.println ("Un registro ocupa: " + FormatoAlumno.TAMANO);
 		System.out.println ("El fichero ocupa: " + raf.length());
 		System.out.println ("Estamos en la posición: " + raf.getFilePointer());
 	}
 	
+	private static void bajaAlumno(RandomAccessFile raf, AlumnoFicheroDAO dao) throws IOException {
+		System.out.println("¿Qué alumno damos de baja?");
+		int numAlumno = sc.nextInt();
+		dao.borrarAlumno(raf, numAlumno);
+		
+	}
+	
+	private static void listarAlumnos(RandomAccessFile raf, AlumnoFicheroDAO dao) throws IOException {
+		//Por que quede más claro, vamos a ver cuantos registros tenemos
+		long numRegistros = (raf.length()/FormatoAlumno.TAMANO);
+		raf.seek(0);
+		for (int i=1; i<=numRegistros; i++) {
+			Optional<Alumno> a = dao.leer(raf);
+			if (a.isPresent()) {
+				System.out.println(a.toString());
+			}
+			else {
+				//Si no hemos leido el registro entero, lo movemos
+				raf.seek(FormatoAlumno.TAMANO*i);	
+			}
+			
+
+		}
+		
+	}
 	
 	public static void main(String[] args){
 		//Ampliamos el ejercicio, vamos a poder:
@@ -67,11 +89,13 @@ public class AppAlumno {
 				
 				opcion=sc.nextInt();
 				switch(opcion) {
-				case 1 ->alta10Alumnos(raf, dao);
-				case 3 ->dao.escribir(raf, new Alumno(50, "B1222", "Alumno", "Creado a mano", 
-						LocalDate.of(1980, 5, 6), null));
-				case 5 ->consultarEstadisticas(raf);
-				default -> System.out.println("Opción no válida");
+					case 1 ->alta10Alumnos(raf, dao);
+					case 2 ->bajaAlumno(raf, dao);
+					case 3 ->dao.escribir(raf, new Alumno(50, "B1222", "Alumno", "Creado a mano", 
+							LocalDate.of(1980, 5, 6), null));
+					case 4 ->listarAlumnos(raf,dao);
+					case 5 ->consultarEstadisticas(raf);
+					default -> System.out.println("Opción no válida");
 				}
 				
 			} while (opcion!=7);
@@ -82,4 +106,5 @@ public class AppAlumno {
 		}
 			
 	}
+
 }
