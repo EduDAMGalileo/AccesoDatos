@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<centro curso="2026-2027">
+    <alumno id="1">
+        <nombre>Sara Villalba Marco</nombre>
+        <nacimiento>2004-03-11</nacimiento>
+    </alumno>
+</centro>
