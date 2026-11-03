@@ -1,4 +1,8 @@
+<<<<<<<< HEAD:src/persistencia/p5serializacion/EjemploProperties.java
 package persistencia.p5serializacion;
+========
+package persistencia.P5serializacion;
+>>>>>>>> 907ff71b088e5e7f3dbecbb06d081f40eb39bf06:src/persistencia/P5serializacion/EjemploProperties.java
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;

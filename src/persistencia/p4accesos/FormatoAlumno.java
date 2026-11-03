@@ -7,7 +7,7 @@ public final class FormatoAlumno {
     public static final int APELLIDOS = 60;
     public static final int CORREO = 60;
 
-    // Marca de borrado + indentificador + datos + fecha
+    // Marca de borrado + indentificador + datos + fecha (329 bytes)
     public static final int TAMANO = 1 + 4 + (NIA + NOMBRE + APELLIDOS + CORREO) * 2 + 8;                      
 
     public static long posicionDe(int numeroRegistro) {

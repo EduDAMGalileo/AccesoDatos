@@ -15,7 +15,7 @@ public class AppAlumnos {
 
 		try (RandomAccessFile raf = new RandomAccessFile(file, "rw")) {
 
-			Alumno a1 = new Alumno(	1, "12345678", "Ada", "Lovelace", LocalDate.of(1995, 12, 10), "ada@correo.com");
+			Alumno a1 = new Alumno(1, "12345678", "Ada", "Lovelace", LocalDate.of(1995, 12, 10), "ada@correo.com");
 			Alumno a2 = new Alumno(2, "87654321", "Alan", "Turing",	LocalDate.of(1998, 6, 23), null);
 
 			System.out.println("Tamaño de registro: " + FormatoAlumno.TAMANO + " bytes");
