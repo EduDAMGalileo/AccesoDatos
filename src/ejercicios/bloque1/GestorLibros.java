@@ -9,7 +9,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-import persistencia.P1primerIntento.Alumno;
+import persistencia.p1primerIntento.Alumno;
 
 public class GestorLibros {
 	
