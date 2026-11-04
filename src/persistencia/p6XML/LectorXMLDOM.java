@@ -38,7 +38,7 @@ public class LectorXMLDOM {
 
             // Obtener la lista de todos los elementos <alumno>
             NodeList alumnos = documento.getElementsByTagName("alumno");
-
+            System.out.println();
             // Recorrer el listado de alumnos
             for (int i = 0; i < alumnos.getLength(); i++) {
                 Element alumno = (Element) alumnos.item(i);

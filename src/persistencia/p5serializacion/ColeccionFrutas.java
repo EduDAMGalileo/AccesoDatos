@@ -64,6 +64,7 @@ public class ColeccionFrutas{
 				new BufferedInputStream(Files.newInputStream(ruta)))) {
 
 			// Recuperamos el objeto y hacemos el cast a List<Fruta>
+			// Para los TOC´s, si os pone nerviosos tener warnings
 			@SuppressWarnings("unchecked")
 			List<Fruta> frutasRecuperadas = (List<Fruta>) entrada.readObject();
 

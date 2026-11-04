@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<centro curso="2026-2027">    
+    <alumno id="1">       
+        <nombre>Sara Villalba Marco</nombre>            
+        <nacimiento>2004-03-11</nacimiento>     
+        <correo>sara.villalba@example.org</correo>          
+        <matriculas>                   
+            <matricula modulo="0486">Acceso a datos</matricula>
+            <matricula modulo="0488">Desarrollo de interfaces</matricula>
+        </matriculas>
+    </alumno>
+    <alumno id="2">
+        <nombre>Iker Bengoetxea Ruiz</nombre>
+        <nacimiento>2003-09-27</nacimiento>
+        <matriculas>
+            <matricula modulo="0486">Acceso a datos</matricula>
+        </matriculas>
+    </alumno>
+</centro>
