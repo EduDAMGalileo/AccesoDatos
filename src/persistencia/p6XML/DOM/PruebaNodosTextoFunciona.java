@@ -1,4 +1,4 @@
-package persistencia.p6XML;
+package persistencia.p6XML.DOM;
 
 import org.w3c.dom.*;
 import javax.xml.parsers.DocumentBuilderFactory;
