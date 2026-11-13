@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<maraton nombre="Maratón Internacional Ciudad Galileo" edicion="15">
+    
+    <informacion_general>
+        <fecha>2026-11-15</fecha>
+        <ciudad>Valladolid</ciudad>
+        <distancia unidad="km">42.195</distancia>
+    </informacion_general>
+
+    <participantes>
+        <corredor dorsal="101" categoria="Popular">
+            <nombre>Carlos</nombre>
+            <apellidos>Gómez Ruiz</apellidos>
+            <edad>29</edad>
+            <pais>España</pais>
+            <tiempo_final>03:14:35</tiempo_final>
+        </corredor>
+
+        <corredor dorsal="452" categoria="Elite">
+            <nombre>Elena</nombre>
+            <apellidos>Martínez Pérez</apellidos>
+            <edad>34</edad>
+            <pais>México</pais>
+            <tiempo_final>02:15:12</tiempo_final>
+        </corredor>
+    </participantes>
+
+</maraton>

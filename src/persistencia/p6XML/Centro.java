@@ -1,8 +1,6 @@
-package persistencia.p6XML.DOM;
+package persistencia.p6XML;
 
 import java.util.List;
-
-import persistencia.p6XML.Alumno;
 
 public class Centro {
     private String curso;

@@ -17,12 +17,4 @@
             <matricula modulo="0486">Acceso a datos</matricula>
         </matriculas>
     </alumno>
-    <alumno id="3">
-        <nombre>Marc Soler</nombre>
-        <nacimiento>2005-07-15</nacimiento>
-        <correo>marc.soler@example.org</correo>
-        <matriculas>
-            <matricula modulo="0486">Acceso a datos</matricula>
-        </matriculas>
-    </alumno>
 </centro>
